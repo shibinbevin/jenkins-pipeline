@@ -13,6 +13,7 @@ pipeline {
         stage('Run JMeter Test') {
             steps {
                 script {
+                    bat "mkdir ${REPORTS_DIR}"
                     bat "jmeter -j jmeter.save.saveservice.output_format=xml -n -t ${JMX_FILE} -l ${REPORTS_DIR}/results.jtl -e -o ${REPORTS_DIR}/html-report"
                 }
             }
@@ -21,7 +22,7 @@ pipeline {
             steps {
                 script {
                     if (fileExists("${REPORTS_DIR}/results.jtl")) {
-                        performanceReport parsers: [[$class: 'JMeterParser', parser: 'JMeterCSV', glob: "${REPORTS_DIR}/results.jtl"]]
+                        performanceReport parsers: [[$class: 'JMeterCSVParser', glob: "${REPORTS_DIR}/results.jtl"]]
                     } else {
                         echo "JMeter results file not found: ${REPORTS_DIR}/results.jtl"
                     }

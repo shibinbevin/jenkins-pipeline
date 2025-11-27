@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        REPORTS_DIR = 'reports'
+        REPORTS_DIR = 'C:\\Users\\Administrator\\Desktop\\jmeter_scripts\\day3\\reports'
         JMX_FILE = 'Test-Plan.jmx'
     }
     stages {

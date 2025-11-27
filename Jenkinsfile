@@ -4,6 +4,9 @@ pipeline {
         REPORTS_DIR = 'C:\\Users\\Administrator\\Desktop\\jmeter_scripts\\day3\\reports'
         JMX_FILE = 'C:\\Users\\Administrator\\Desktop\\jmeter_scripts\\day3\\Test-Plan.jmx'
     }
+    triggers{
+        cron('H 5 * * 1-5')
+    }
     stages {
         stage('Checkout Code') {
             steps {

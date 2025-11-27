@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     if (fileExists("${REPORTS_DIR}/results.jtl")) {
-                        performanceReport parsers: [[$class: 'JMeterCSVParser', glob: "${REPORTS_DIR}/results.jtl"]]
+                        performanceReport parsers: [[$class: 'JMeterCsvParser', glob: "${REPORTS_DIR}/results.jtl"]]
                     } else {
                         echo "JMeter results file not found: ${REPORTS_DIR}/results.jtl"
                     }

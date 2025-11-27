@@ -13,7 +13,7 @@ pipeline {
         stage('Run JMeter Test') {
             steps {
                 script {
-                    bat "jmeter jmeter.save.saveservice.output_format=xml -n -t ${JMX_FILE} -l ${REPORTS_DIR}/results.jtl -e -o ${REPORTS_DIR}/html-report"
+                    bat "jmeter -j jmeter.save.saveservice.output_format=xml -n -t ${JMX_FILE} -l ${REPORTS_DIR}/results.jtl -e -o ${REPORTS_DIR}/html-report"
                 }
             }
         }

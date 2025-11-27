@@ -7,8 +7,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                // Fetch your JMeter test plan from a SCM (e.g., Git)
-                git 'https://github.com/shibinbevin/jenkins-pipeline.git' 
+                git 'https://github.com/shibinbevin/jenkins-pipeline.git'
             }
         }
         stage('Run JMeter Test') {

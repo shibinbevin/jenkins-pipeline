@@ -32,11 +32,11 @@ pipeline {
                 }
             }
         }
-        // stage('Archive Artifacts') {
-        //     steps {
-        //         // Archive the generated .jtl and HTML reports
-        //         archiveArtifacts artifacts: "${REPORTS_DIR}/**", allowEmptyArchive: true
-        //     }
-        // }
+        stage('Archive Artifacts') {
+            steps {
+                // Archive the generated .jtl and HTML reports
+                archiveArtifacts artifacts: "${REPORTS_DIR}/**", allowEmptyArchive: true
+            }
+        }
     }
 }
